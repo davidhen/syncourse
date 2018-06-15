@@ -1,0 +1,37 @@
+---
+title: "Synthpop workshop 1"
+author: "David Henderson"
+date: "15 June 2018"
+output: 
+  html_document:
+    theme: spacelab
+    toc: true
+    toc_float: true
+    code_folding: hide
+    df_print: paged
+---
+
+```{r opts, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Introduction
+
+##Pre-workshop prep
+
+Load the package + others
+
+```{r load_synthpop}
+library(tidyverse)
+library(synthpop)
+library(skimr)
+```
+
+##Look at the data
+
+```{r data, results='asis'}
+skim(SD2011) %>% skimr::kable()
+```
+
+
+

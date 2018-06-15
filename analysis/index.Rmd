@@ -6,4 +6,8 @@ output:
     toc: false
 ---
 
-Welcome to my research website.
+Notebook of course materials from "Generating synthetic data with the synthpop package for R" held at Queen's university, Belfast on 20th june 2018.
+
+Files:-
+
+Click on this [link](01_synthpop.html) to see my notebook
