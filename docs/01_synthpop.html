@@ -287,7 +287,7 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="01_synthpop.html">Notebook</a>
 </li>
 <li>
   <a href="license.html">License</a>
@@ -295,7 +295,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jdblischak/workflowr">
+  <a href="https://github.com/davidhen/syncourse">
     <span class="fa fa-github"></span>
      
   </a>
@@ -323,7 +323,7 @@ div.section {
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-06-15</p>
+<p><strong>Last updated:</strong> 2018-06-19</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
@@ -347,18 +347,12 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/davidhen/syncourse/tree/3fd66881893899d423d171566539b8dc24157fe4" target="_blank">3fd6688</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/davidhen/syncourse/tree/3252c67ba59f9baffe92d96bda0da143be97e0f1" target="_blank">3252c67</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  data/course_docs/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
@@ -392,6 +386,40 @@ Message
 Rmd
 </td>
 <td style="text-align:left;">
+<a href="https://github.com/davidhen/syncourse/blob/3252c67ba59f9baffe92d96bda0da143be97e0f1/analysis/01_synthpop.Rmd" target="_blank">3252c67</a>
+</td>
+<td style="text-align:left;">
+davidhen
+</td>
+<td style="text-align:left;">
+2018-06-19
+</td>
+<td style="text-align:left;">
+final commit before workshop
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/davidhen/syncourse/f50bf82a362197f60623aa4cbce85fce3198b709/docs/01_synthpop.html" target="_blank">f50bf82</a>
+</td>
+<td style="text-align:left;">
+davidhen
+</td>
+<td style="text-align:left;">
+2018-06-15
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
 <a href="https://github.com/davidhen/syncourse/blob/3fd66881893899d423d171566539b8dc24157fe4/analysis/01_synthpop.Rmd" target="_blank">3fd6688</a>
 </td>
 <td style="text-align:left;">
@@ -409,18 +437,18 @@ commit with skim
 </ul>
 <p></details></p>
 <hr />
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<div id="pre-workshop-prep" class="section level2">
-<h2>Pre-workshop prep</h2>
+<div id="pre-workshop-prep" class="section level1">
+<h1>Pre-workshop prep</h1>
+<div id="packages" class="section level2">
+<h2>Packages</h2>
 <p>Load the package + others</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>-- Attaching packages ----------- tidyverse 1.2.1 --</code></pre>
+<pre><code>-- Attaching packages --- tidyverse 1.2.1 --</code></pre>
 <pre><code>v ggplot2 2.2.1     v purrr   0.2.5
 v tibble  1.4.2     v dplyr   0.7.5
 v tidyr   0.8.1     v stringr 1.3.1
 v readr   1.1.1     v forcats 0.3.0</code></pre>
-<pre><code>-- Conflicts -------------- tidyverse_conflicts() --
+<pre><code>-- Conflicts ------ tidyverse_conflicts() --
 x dplyr::filter() masks stats::filter()
 x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(synthpop)</code></pre>
@@ -876,6 +904,10 @@ n variables: 35</p>
 </tbody>
 </table>
 </div>
+<div id="pick-my-variables" class="section level2">
+<h2>Pick my variables</h2>
+<p>Not sure yet - need to pick 4</p>
+</div>
 <div id="session-information" class="section level2">
 <h2>Session information</h2>
 <pre class="r"><code>sessionInfo()</code></pre>
@@ -916,7 +948,7 @@ loaded via a namespace (and not attached):
 [34] lazyeval_0.2.1      cli_1.0.0           mnormt_1.5-5       
 [37] proto_1.0.0         survival_2.41-3     strucchange_1.5-1  
 [40] magrittr_1.5        crayon_1.3.4        readxl_1.1.0       
-[43] polspline_1.1.12    evaluate_0.10.1     R.methodsS3_1.7.1  
+[43] polspline_1.1.13    evaluate_0.10.1     R.methodsS3_1.7.1  
 [46] nlme_3.1-137        class_7.3-14        xml2_1.2.0         
 [49] foreign_0.8-70      tools_3.5.0         hms_0.4.2          
 [52] multcomp_1.4-8      munsell_0.5.0       e1071_1.6-8        
@@ -927,7 +959,7 @@ loaded via a namespace (and not attached):
 [67] knitr_1.20          bindr_0.1.1         workflowr_1.0.1    
 [70] rprojroot_1.3-2     modeltools_0.2-21   stringi_1.1.7      
 [73] parallel_3.5.0      Rcpp_0.12.17        rpart_4.1-13       
-[76] spData_0.2.8.3      tidyselect_0.2.4   </code></pre>
+[76] spData_0.2.9.0      tidyselect_0.2.4   </code></pre>
 </div>
 </div>
 
