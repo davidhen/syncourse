@@ -15,9 +15,9 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Introduction
+#Pre-workshop prep
 
-##Pre-workshop prep
+##Packages 
 
 Load the package + others
 
@@ -32,6 +32,14 @@ library(skimr)
 ```{r data, results='asis'}
 skim(SD2011) %>% skimr::kable()
 ```
+
+
+##Pick my variables
+
+Not sure yet - need to pick 4
+
+
+
 
 
 
