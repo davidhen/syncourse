@@ -38,7 +38,7 @@ skim(SD2011) %>% skimr::kable()
 
 ?? `sex`, `smoke`, `income` and `age`
 
-Just for fun... `r anicon::faa("smile", animate = "bounce", size = 4)`
+Just for fun... `r anicon::faa("smile", animate = "bounce", size = 3)`
 
 
 
