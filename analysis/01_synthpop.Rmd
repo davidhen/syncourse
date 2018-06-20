@@ -69,7 +69,7 @@ Potential probems for the synthesis?
 * The minimum value of `income` is negative ?? should be `NA`
 * The level of missing data in `income` is almost 16%
 
-
+Re render
 
 
 ## Add examples of different argument values. 
