@@ -54,11 +54,11 @@ Just for fun... `r anicon::faa("smile", animate = "bounce", size = 3)`
 
 The first task is to subset the dataframe using only these 4 variables. In the next chunk of code I declare an new object `test1` and then used the `dplyr` verb `select` to choose the 4 variables I mentioned above. I use `dplyr::glimpse()` to show this subset data frame in a tranposed format for ease of printing. 
 
-```{r subset, results='asis'}
+```{r subset}
 test1 <- 
   SD2011 %>% 
   select(c(sex, smoke, income, age))
-glimpse(test1)
+test1
 ```
 
 (need to fix histogram rendering - might be a `workflowr` problem??)
