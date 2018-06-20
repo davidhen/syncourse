@@ -7,6 +7,4 @@ seed: 20180615
 # _workflowr.yml. See ?rmarkdown::render for details.
 knit_root_dir: "."
 
-code_folding: "hide"
-df_print: "paged"
 sessioninfo: "devtools::session_info()"
