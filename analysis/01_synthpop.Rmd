@@ -25,6 +25,7 @@ Load the package + others
 library(synthpop) #Must be loaded before tidyverse or dplyr::select is masked
 library(tidyverse)
 library(skimr)
+library(extrafont)
 ```
 
 ##Look at the data
