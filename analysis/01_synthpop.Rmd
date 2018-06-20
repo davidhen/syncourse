@@ -36,7 +36,9 @@ skim(SD2011) %>% skimr::kable()
 
 ##Pick my variables
 
-Not sure yet - need to pick 4
+?? `sex`, `smoke`, `income` and `age`
+
+Just for fun... `r anicon::faa("smile", animate = "bounce", size = 4)`
 
 
 
