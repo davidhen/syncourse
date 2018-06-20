@@ -22,8 +22,8 @@ knitr::opts_chunk$set(echo = TRUE)
 Load the package + others
 
 ```{r load_synthpop}
+library(synthpop) #Must be loaded before tidyverse or dplyr::select is masked
 library(tidyverse)
-library(synthpop)
 library(skimr)
 ```
 
@@ -41,7 +41,23 @@ skim(SD2011) %>% skimr::kable()
 Just for fun... `r anicon::faa("smile", animate = "bounce", size = 3)`
 
 
+#Practical 1
 
+##Task 1 My first two syntheses
+
+Create a subset dataframe 
+
+```{r subset}
+test1 <- 
+  SD2011 %>% 
+  select(c(sex, smoke, income, age))
+skim(test1) %>% kable()
+```
+
+Potential probems for the synthesis? 
+
+* `income` is not normally distributed
+* The level of missing data in `income` is almost 16%
 
 
 
