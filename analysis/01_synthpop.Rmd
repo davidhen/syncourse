@@ -43,7 +43,7 @@ For the purposes of the workshop we need to pick 4 variables from this that we w
 
 ##Pick my variables
 
-I'm going to go for `sex`, `smoke`, `income` and `age`
+I'm going to go for `alcsol`, `alcabuse`, `income` and `age`
 
 Just for fun... `r anicon::faa("smile", animate = "bounce", size = 3)`
 
@@ -57,21 +57,18 @@ The first task is to subset the dataframe using only these 4 variables. In the n
 ```{r subset}
 test1 <- 
   SD2011 %>% 
-  select(c(sex, smoke, income, age))
-test1
+  select(c(alcsol, alcabuse, income, age))
+skim(test1)
 ```
 
-(need to fix histogram rendering - might be a `workflowr` problem??)
 
-Potential probems for the synthesis? 
-
-* `income` is not normally distributed
 * The minimum value of `income` is negative ?? should be `NA`
 * The level of missing data in `income` is almost 16%
+* `alcsol` and `alcabuse` are rare events
 
-Re render
-
-
-## Add examples of different argument values. 
+```{r first_synthesis}
+syn1 <- syn(test1, cont.na = list(income = c(NA, -8)))
+compare(syn1,test1)
+```
 
 
