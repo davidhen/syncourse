@@ -349,12 +349,15 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/davidhen/syncourse/tree/1d9b5cdbbfc9e479038e8e67d056dff0e2c51e3a" target="_blank">1d9b5cd</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/davidhen/syncourse/tree/c1379d52db716c845639b96ba0afe11a651cd020" target="_blank">c1379d5</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Unstaged changes:
+    Modified:   _workflowr.yml
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
@@ -383,6 +386,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/davidhen/syncourse/blob/c1379d52db716c845639b96ba0afe11a651cd020/analysis/01_synthpop.Rmd" target="_blank">c1379d5</a>
+</td>
+<td style="text-align:left;">
+davidhen
+</td>
+<td style="text-align:left;">
+2018-06-20
+</td>
+<td style="text-align:left;">
+update
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/davidhen/syncourse/9695af3a0abad4b2766ce049ab1ea56a54327e4d/docs/01_synthpop.html" target="_blank">9695af3</a>
+</td>
+<td style="text-align:left;">
+davidhen
+</td>
+<td style="text-align:left;">
+2018-06-20
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -613,28 +650,32 @@ commit with skim
 <h1>Pre-workshop prep</h1>
 <div id="packages" class="section level2">
 <h2>Packages</h2>
-<p>Load the package + others</p>
+<p>Load the package + others. I am using the <code>dplyr</code> package for data manipulation and the <code>skimr</code> package for summaries. If you don’t have these packages installed then you can install them by typing e.g. <code>install.packages(&quot;dplyr&quot;)</code></p>
 <pre class="r"><code>library(synthpop) #Must be loaded before tidyverse or dplyr::select is masked</code></pre>
 <pre><code>Loading required package: lattice</code></pre>
 <pre><code>Loading required package: MASS</code></pre>
 <pre><code>Loading required package: nnet</code></pre>
 <pre><code>Loading required package: ggplot2</code></pre>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>-- Attaching packages ---------------</code></pre>
-<pre><code>v tibble  1.4.2     v purrr   0.2.5
-v tidyr   0.8.1     v dplyr   0.7.5
-v readr   1.1.1     v stringr 1.3.1
-v tibble  1.4.2     v forcats 0.3.0</code></pre>
-<pre><code>-- Conflicts ------------------------
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()
-x dplyr::select() masks MASS::select()</code></pre>
-<pre class="r"><code>library(skimr)
-library(extrafont)</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>
+Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>The following object is masked from &#39;package:MASS&#39;:
+
+    select</code></pre>
+<pre><code>The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag</code></pre>
+<pre><code>The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(magrittr)
+library(skimr)
+library(extrafont) # To </code></pre>
 <pre><code>Registering fonts with R</code></pre>
 </div>
 <div id="look-at-the-data" class="section level2">
 <h2>Look at the data</h2>
+<p>The <code>synthpop</code> package has a default dataset called <code>SD2011</code> automatically loaded for examples. Here I produce a summary of the data using the <code>skimr</code> package.</p>
 <pre class="r"><code>skim(SD2011) %&gt;% skimr::kable()</code></pre>
 <p>Skim summary statistics<br />
 n obs: 5000<br />
@@ -1074,10 +1115,12 @@ n variables: 35</p>
 </tr>
 </tbody>
 </table>
+<p>This gives us a nice summary of the whole data frame.</p>
+<p>For the purposes of the workshop we need to pick 4 variables from this that we will generate our first synthetic dataset from.</p>
 </div>
 <div id="pick-my-variables" class="section level2">
 <h2>Pick my variables</h2>
-<p>?? <code>sex</code>, <code>smoke</code>, <code>income</code> and <code>age</code></p>
+<p>I’m going to go for <code>sex</code>, <code>smoke</code>, <code>income</code> and <code>age</code></p>
 <p>Just for fun… <i class="fas  fa-smile fa-3x faa-bounce animated "></i></p>
 </div>
 </div>
@@ -1085,156 +1128,122 @@ n variables: 35</p>
 <h1>Practical 1</h1>
 <div id="task-1-my-first-two-syntheses" class="section level2">
 <h2>Task 1 My first two syntheses</h2>
-<p>Create a subset dataframe</p>
+<p>The first task is to subset the dataframe using only these 4 variables. In the next chunk of code I declare an new object <code>test1</code> and then used the <code>dplyr</code> verb <code>select</code> to choose the 4 variables I mentioned above. I use <code>dplyr::glimpse()</code> to show this subset data frame in a tranposed format for ease of printing.</p>
 <pre class="r"><code>test1 &lt;- 
   SD2011 %&gt;% 
   select(c(sex, smoke, income, age))
-skim(test1) %&gt;% kable()</code></pre>
-<p>Skim summary statistics<br />
-n obs: 5000<br />
-n variables: 4</p>
-<p>Variable type: factor</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">variable</th>
-<th align="center">missing</th>
-<th align="center">complete</th>
-<th align="center">n</th>
-<th align="center">n_unique</th>
-<th align="center">top_counts</th>
-<th align="center">ordered</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">sex</td>
-<td align="center">0</td>
-<td align="center">5000</td>
-<td align="center">5000</td>
-<td align="center">2</td>
-<td align="center">FEM: 2818, MAL: 2182, NA: 0</td>
-<td align="center">FALSE</td>
-</tr>
-<tr class="even">
-<td align="center">smoke</td>
-<td align="center">10</td>
-<td align="center">4990</td>
-<td align="center">5000</td>
-<td align="center">2</td>
-<td align="center">NO: 3713, YES: 1277, NA: 10</td>
-<td align="center">FALSE</td>
-</tr>
-</tbody>
-</table>
-<p>Variable type: numeric</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">variable</th>
-<th align="center">missing</th>
-<th align="center">complete</th>
-<th align="center">n</th>
-<th align="center">mean</th>
-<th align="center">sd</th>
-<th align="center">p0</th>
-<th align="center">p25</th>
-<th align="center">p50</th>
-<th align="center">p75</th>
-<th align="center">p100</th>
-<th align="center">hist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">age</td>
-<td align="center">0</td>
-<td align="center">5000</td>
-<td align="center">5000</td>
-<td align="center">47.68</td>
-<td align="center">18.51</td>
-<td align="center">16</td>
-<td align="center">32</td>
-<td align="center">49</td>
-<td align="center">61</td>
-<td align="center">97</td>
-<td align="center"><U+2587><U+2586><U+2586><U+2587><U+2587><U+2585><U+2582><U+2581></td>
-</tr>
-<tr class="even">
-<td align="center">income</td>
-<td align="center">683</td>
-<td align="center">4317</td>
-<td align="center">5000</td>
-<td align="center">1411.09</td>
-<td align="center">1271.65</td>
-<td align="center">-8</td>
-<td align="center">700</td>
-<td align="center">1200</td>
-<td align="center">1800</td>
-<td align="center">16000</td>
-<td align="center"><U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581></td>
-</tr>
-</tbody>
-</table>
+glimpse(test1)</code></pre>
+<p>Observations: 5,000 Variables: 4 $ sex <fct> FEMALE, MALE, FEMALE, FEMALE, FEMALE, MALE, FEMALE, MAL… $ smoke <fct> NO, NO, NO, NO, YES, NO, NO, NO, YES, YES, YES, NO, YES… $ income <dbl> 800, 350, NA, 900, 1500, -8, 2000, 1197, 580, 1400, 150… $ age <dbl> 57, 20, 18, 78, 54, 20, 39, 39, 43, 63, 38, 73, 54, 30,…</p>
+<p>(need to fix histogram rendering - might be a <code>workflowr</code> problem??)</p>
 <p>Potential probems for the synthesis?</p>
 <ul>
 <li><code>income</code> is not normally distributed</li>
+<li>The minimum value of <code>income</code> is negative ?? should be <code>NA</code></li>
 <li>The level of missing data in <code>income</code> is almost 16%</li>
 </ul>
 </div>
+<div id="add-examples-of-different-argument-values." class="section level2">
+<h2>Add examples of different argument values.</h2>
+</div>
 <div id="session-information" class="section level2">
 <h2>Session information</h2>
-<pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.0 (2018-04-23)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 10 x64 (build 17134)
-
-Matrix products: default
-
-locale:
-[1] LC_COLLATE=English_United Kingdom.1252 
-[2] LC_CTYPE=English_United Kingdom.1252   
-[3] LC_MONETARY=English_United Kingdom.1252
-[4] LC_NUMERIC=C                           
-[5] LC_TIME=English_United Kingdom.1252    
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
- [1] bindrcpp_0.2.2  extrafont_0.17  skimr_1.0.3     forcats_0.3.0  
- [5] stringr_1.3.1   dplyr_0.7.5     purrr_0.2.5     readr_1.1.1    
- [9] tidyr_0.8.1     tibble_1.4.2    tidyverse_1.2.1 synthpop_1.4-3 
-[13] ggplot2_2.2.1   nnet_7.3-12     MASS_7.3-49     lattice_0.20-35
-
-loaded via a namespace (and not attached):
- [1] nlme_3.1-137        lubridate_1.7.4     httr_1.3.1         
- [4] rprojroot_1.3-2     tools_3.5.0         backports_1.1.2    
- [7] R6_2.2.2            rpart_4.1-13        spData_0.2.9.0     
-[10] lazyeval_0.2.1      colorspace_1.3-2    tidyselect_0.2.4   
-[13] mnormt_1.5-5        compiler_3.5.0      git2r_0.21.0       
-[16] extrafontdb_1.0     cli_1.0.0           rvest_0.3.2        
-[19] xml2_1.2.0          sandwich_2.4-0      scales_0.5.0       
-[22] classInt_0.2-3      polspline_1.1.13    mvtnorm_1.0-8      
-[25] psych_1.8.4         randomForest_4.6-14 digest_0.6.15      
-[28] foreign_0.8-70      rmarkdown_1.10      R.utils_2.6.0      
-[31] pkgconfig_2.0.1     htmltools_0.3.6     highr_0.7          
-[34] rlang_0.2.1         readxl_1.1.0        rstudioapi_0.7     
-[37] bindr_0.1.1         zoo_1.8-2           jsonlite_1.5       
-[40] R.oo_1.22.0         magrittr_1.5        modeltools_0.2-21  
-[43] Matrix_1.2-14       Rcpp_0.12.17        munsell_0.5.0      
-[46] proto_1.0.0         R.methodsS3_1.7.1   stringi_1.1.7      
-[49] icon_0.1.0          multcomp_1.4-8      whisker_0.3-2      
-[52] yaml_2.1.19         plyr_1.8.4          grid_3.5.0         
-[55] parallel_3.5.0      strucchange_1.5-1   crayon_1.3.4       
-[58] haven_1.1.1         splines_3.5.0       hms_0.4.2          
-[61] knitr_1.20          pillar_1.2.3        party_1.3-0        
-[64] reshape2_1.4.3      codetools_0.2-15    anicon_0.1.0       
-[67] stats4_3.5.0        glue_1.2.0          evaluate_0.10.1    
-[70] modelr_0.1.2        Rttf2pt1_1.3.6      cellranger_1.1.0   
-[73] gtable_0.2.0        assertthat_0.2.0    coin_1.2-2         
-[76] broom_0.4.4         e1071_1.6-8         class_7.3-14       
-[79] survival_2.41-3     workflowr_1.0.1     TH.data_1.0-8      </code></pre>
+<pre class="r"><code>devtools::session_info()</code></pre>
+<pre><code>Session info -------------------------------------------------------------</code></pre>
+<pre><code> setting  value                       
+ version  R version 3.5.0 (2018-04-23)
+ system   x86_64, mingw32             
+ ui       RTerm                       
+ language (EN)                        
+ collate  English_United Kingdom.1252 
+ tz       Europe/London               
+ date     2018-06-20                  </code></pre>
+<pre><code>Packages -----------------------------------------------------------------</code></pre>
+<pre><code> package      * version date       source                            
+ anicon         0.1.0   2018-06-20 Github (emitanaka/anicon@f121b0e) 
+ assertthat     0.2.0   2017-04-11 CRAN (R 3.5.0)                    
+ backports      1.1.2   2017-12-13 CRAN (R 3.5.0)                    
+ base         * 3.5.0   2018-04-23 local                             
+ bindr          0.1.1   2018-03-13 CRAN (R 3.5.0)                    
+ bindrcpp     * 0.2.2   2018-03-29 CRAN (R 3.5.0)                    
+ class          7.3-14  2015-08-30 CRAN (R 3.5.0)                    
+ classInt       0.2-3   2018-04-16 CRAN (R 3.5.0)                    
+ codetools      0.2-15  2016-10-05 CRAN (R 3.5.0)                    
+ coin           1.2-2   2017-11-28 CRAN (R 3.5.0)                    
+ colorspace     1.3-2   2016-12-14 CRAN (R 3.5.0)                    
+ compiler       3.5.0   2018-04-23 local                             
+ datasets     * 3.5.0   2018-04-23 local                             
+ devtools       1.13.5  2018-02-18 CRAN (R 3.5.0)                    
+ digest         0.6.15  2018-01-28 CRAN (R 3.5.0)                    
+ dplyr        * 0.7.5   2018-05-19 CRAN (R 3.5.0)                    
+ e1071          1.6-8   2017-02-02 CRAN (R 3.5.0)                    
+ evaluate       0.10.1  2017-06-24 CRAN (R 3.5.0)                    
+ extrafont    * 0.17    2014-12-08 CRAN (R 3.5.0)                    
+ extrafontdb    1.0     2012-06-11 CRAN (R 3.5.0)                    
+ foreign        0.8-70  2017-11-28 CRAN (R 3.5.0)                    
+ ggplot2      * 2.2.1   2016-12-30 CRAN (R 3.5.0)                    
+ git2r          0.21.0  2018-01-04 CRAN (R 3.5.0)                    
+ glue           1.2.0   2017-10-29 CRAN (R 3.5.0)                    
+ graphics     * 3.5.0   2018-04-23 local                             
+ grDevices    * 3.5.0   2018-04-23 local                             
+ grid           3.5.0   2018-04-23 local                             
+ gtable         0.2.0   2016-02-26 CRAN (R 3.5.0)                    
+ highr          0.7     2018-06-09 CRAN (R 3.5.0)                    
+ htmltools      0.3.6   2017-04-28 CRAN (R 3.5.0)                    
+ icon           0.1.0   2018-06-20 Github (ropenscilabs/icon@8458546)
+ knitr          1.20    2018-02-20 CRAN (R 3.5.0)                    
+ lattice      * 0.20-35 2017-03-25 CRAN (R 3.5.0)                    
+ lazyeval       0.2.1   2017-10-29 CRAN (R 3.5.0)                    
+ magrittr     * 1.5     2014-11-22 CRAN (R 3.5.0)                    
+ MASS         * 7.3-49  2018-02-23 CRAN (R 3.5.0)                    
+ Matrix         1.2-14  2018-04-13 CRAN (R 3.5.0)                    
+ memoise        1.1.0   2017-04-21 CRAN (R 3.5.0)                    
+ methods      * 3.5.0   2018-04-23 local                             
+ modeltools     0.2-21  2013-09-02 CRAN (R 3.5.0)                    
+ multcomp       1.4-8   2017-11-08 CRAN (R 3.5.0)                    
+ munsell        0.5.0   2018-06-12 CRAN (R 3.5.0)                    
+ mvtnorm        1.0-8   2018-05-31 CRAN (R 3.5.0)                    
+ nnet         * 7.3-12  2016-02-02 CRAN (R 3.5.0)                    
+ party          1.3-0   2018-04-20 CRAN (R 3.5.0)                    
+ pillar         1.2.3   2018-05-25 CRAN (R 3.5.0)                    
+ pkgconfig      2.0.1   2017-03-21 CRAN (R 3.5.0)                    
+ plyr           1.8.4   2016-06-08 CRAN (R 3.5.0)                    
+ polspline      1.1.13  2018-06-14 CRAN (R 3.5.0)                    
+ proto          1.0.0   2016-10-29 CRAN (R 3.5.0)                    
+ purrr          0.2.5   2018-05-29 CRAN (R 3.5.0)                    
+ R.methodsS3    1.7.1   2016-02-16 CRAN (R 3.5.0)                    
+ R.oo           1.22.0  2018-04-22 CRAN (R 3.5.0)                    
+ R.utils        2.6.0   2017-11-05 CRAN (R 3.5.0)                    
+ R6             2.2.2   2017-06-17 CRAN (R 3.5.0)                    
+ randomForest   4.6-14  2018-03-25 CRAN (R 3.5.0)                    
+ Rcpp           0.12.17 2018-05-18 CRAN (R 3.5.0)                    
+ rlang          0.2.1   2018-05-30 CRAN (R 3.5.0)                    
+ rmarkdown      1.10    2018-06-11 CRAN (R 3.5.0)                    
+ rpart          4.1-13  2018-02-23 CRAN (R 3.5.0)                    
+ rprojroot      1.3-2   2018-01-03 CRAN (R 3.5.0)                    
+ Rttf2pt1       1.3.6   2018-02-22 CRAN (R 3.5.0)                    
+ sandwich       2.4-0   2017-07-26 CRAN (R 3.5.0)                    
+ scales         0.5.0   2017-08-24 CRAN (R 3.5.0)                    
+ skimr        * 1.0.3   2018-06-07 CRAN (R 3.5.0)                    
+ spData         0.2.9.0 2018-06-17 CRAN (R 3.5.0)                    
+ splines        3.5.0   2018-04-23 local                             
+ stats        * 3.5.0   2018-04-23 local                             
+ stats4         3.5.0   2018-04-23 local                             
+ stringi        1.1.7   2018-03-12 CRAN (R 3.5.0)                    
+ stringr        1.3.1   2018-05-10 CRAN (R 3.5.0)                    
+ strucchange    1.5-1   2015-06-06 CRAN (R 3.5.0)                    
+ survival       2.41-3  2017-04-04 CRAN (R 3.5.0)                    
+ synthpop     * 1.4-3   2018-03-19 CRAN (R 3.5.0)                    
+ TH.data        1.0-8   2017-01-23 CRAN (R 3.5.0)                    
+ tibble         1.4.2   2018-01-22 CRAN (R 3.5.0)                    
+ tidyr          0.8.1   2018-05-18 CRAN (R 3.5.0)                    
+ tidyselect     0.2.4   2018-02-26 CRAN (R 3.5.0)                    
+ tools          3.5.0   2018-04-23 local                             
+ utils        * 3.5.0   2018-04-23 local                             
+ whisker        0.3-2   2013-04-28 CRAN (R 3.5.0)                    
+ withr          2.1.2   2018-03-15 CRAN (R 3.5.0)                    
+ workflowr      1.0.1   2018-04-23 CRAN (R 3.5.0)                    
+ yaml           2.1.19  2018-05-01 CRAN (R 3.5.0)                    
+ zoo            1.8-2   2018-06-11 CRAN (R 3.5.0)                    </code></pre>
 </div>
 </div>
 
