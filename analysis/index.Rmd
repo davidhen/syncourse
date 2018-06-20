@@ -8,4 +8,6 @@ output:
 
 Notebook of course materials from "Generating synthetic data with the synthpop package for R" held at Queen's university, Belfast on 20th june 2018.
 
+I have commented code specifically for those with less experience in R. 
+
 Click on the "Notebook" tab above to see my notes
