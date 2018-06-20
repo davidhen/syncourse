@@ -47,7 +47,7 @@ Just for fun... `r anicon::faa("smile", animate = "bounce", size = 3)`
 
 Create a subset dataframe 
 
-```{r subset}
+```{r subset, results='asis'}
 test1 <- 
   SD2011 %>% 
   select(c(sex, smoke, income, age))
@@ -58,6 +58,7 @@ Potential probems for the synthesis?
 
 * `income` is not normally distributed
 * The level of missing data in `income` is almost 16%
+
 
 
 
