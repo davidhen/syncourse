@@ -349,7 +349,7 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/davidhen/syncourse/tree/ace3cfaaca35ac620066474ddcf39259c6ef8b25" target="_blank">ace3cfa</a> </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> <a href="https://github.com/davidhen/syncourse/tree/f80dc2ed57ef390269c875b8020959a5e3f3886c" target="_blank">f80dc2e</a> </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -383,6 +383,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Rmd
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/davidhen/syncourse/blob/f80dc2ed57ef390269c875b8020959a5e3f3886c/analysis/01_synthpop.Rmd" target="_blank">f80dc2e</a>
+</td>
+<td style="text-align:left;">
+davidhen
+</td>
+<td style="text-align:left;">
+2018-06-20
+</td>
+<td style="text-align:left;">
+correct kable error
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+<a href="https://cdn.rawgit.com/davidhen/syncourse/56296f5c5451711b2de1f901af92a92e817ef255/docs/01_synthpop.html" target="_blank">56296f5</a>
+</td>
+<td style="text-align:left;">
+davidhen
+</td>
+<td style="text-align:left;">
+2018-06-20
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Rmd
@@ -552,12 +586,12 @@ commit with skim
 <pre><code>Loading required package: nnet</code></pre>
 <pre><code>Loading required package: ggplot2</code></pre>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>-- Attaching packages --------------</code></pre>
+<pre><code>-- Attaching packages ---------------</code></pre>
 <pre><code>v tibble  1.4.2     v purrr   0.2.5
 v tidyr   0.8.1     v dplyr   0.7.5
 v readr   1.1.1     v stringr 1.3.1
 v tibble  1.4.2     v forcats 0.3.0</code></pre>
-<pre><code>-- Conflicts -----------------------
+<pre><code>-- Conflicts ------------------------
 x dplyr::filter() masks stats::filter()
 x dplyr::lag()    masks stats::lag()
 x dplyr::select() masks MASS::select()</code></pre>
@@ -1020,23 +1054,92 @@ n variables: 35</p>
   SD2011 %&gt;% 
   select(c(sex, smoke, income, age))
 skim(test1) %&gt;% kable()</code></pre>
-<pre><code>Skim summary statistics  
- n obs: 5000    
- n variables: 4    
-
-Variable type: factor
-
- variable    missing    complete     n      n_unique            top_counts             ordered 
-----------  ---------  ----------  ------  ----------  -----------------------------  ---------
-   sex          0         5000      5000       2        FEM: 2818, MAL: 2182, NA: 0     FALSE  
-  smoke        10         4990      5000       2        NO: 3713, YES: 1277, NA: 10     FALSE  
-
-Variable type: numeric
-
- variable    missing    complete     n       mean        sd       p0    p25    p50     p75     p100       hist   
-----------  ---------  ----------  ------  ---------  ---------  ----  -----  ------  ------  -------  ----------
-   age          0         5000      5000     47.68      18.51     16    32      49      61      97      &lt;U+2587&gt;&lt;U+2586&gt;&lt;U+2586&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2585&gt;&lt;U+2582&gt;&lt;U+2581&gt; 
-  income       683        4317      5000    1411.09    1271.65    -8    700    1200    1800    16000    &lt;U+2587&gt;&lt;U+2582&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt; </code></pre>
+<p>Skim summary statistics<br />
+n obs: 5000<br />
+n variables: 4</p>
+<p>Variable type: factor</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">variable</th>
+<th align="center">missing</th>
+<th align="center">complete</th>
+<th align="center">n</th>
+<th align="center">n_unique</th>
+<th align="center">top_counts</th>
+<th align="center">ordered</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">sex</td>
+<td align="center">0</td>
+<td align="center">5000</td>
+<td align="center">5000</td>
+<td align="center">2</td>
+<td align="center">FEM: 2818, MAL: 2182, NA: 0</td>
+<td align="center">FALSE</td>
+</tr>
+<tr class="even">
+<td align="center">smoke</td>
+<td align="center">10</td>
+<td align="center">4990</td>
+<td align="center">5000</td>
+<td align="center">2</td>
+<td align="center">NO: 3713, YES: 1277, NA: 10</td>
+<td align="center">FALSE</td>
+</tr>
+</tbody>
+</table>
+<p>Variable type: numeric</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">variable</th>
+<th align="center">missing</th>
+<th align="center">complete</th>
+<th align="center">n</th>
+<th align="center">mean</th>
+<th align="center">sd</th>
+<th align="center">p0</th>
+<th align="center">p25</th>
+<th align="center">p50</th>
+<th align="center">p75</th>
+<th align="center">p100</th>
+<th align="center">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">age</td>
+<td align="center">0</td>
+<td align="center">5000</td>
+<td align="center">5000</td>
+<td align="center">47.68</td>
+<td align="center">18.51</td>
+<td align="center">16</td>
+<td align="center">32</td>
+<td align="center">49</td>
+<td align="center">61</td>
+<td align="center">97</td>
+<td align="center"><U+2587><U+2586><U+2586><U+2587><U+2587><U+2585><U+2582><U+2581></td>
+</tr>
+<tr class="even">
+<td align="center">income</td>
+<td align="center">683</td>
+<td align="center">4317</td>
+<td align="center">5000</td>
+<td align="center">1411.09</td>
+<td align="center">1271.65</td>
+<td align="center">-8</td>
+<td align="center">700</td>
+<td align="center">1200</td>
+<td align="center">1800</td>
+<td align="center">16000</td>
+<td align="center"><U+2587><U+2582><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581></td>
+</tr>
+</tbody>
+</table>
 <p>Potential probems for the synthesis?</p>
 <ul>
 <li><code>income</code> is not normally distributed</li>
